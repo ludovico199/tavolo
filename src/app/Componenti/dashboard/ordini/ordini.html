@@ -1,0 +1,39 @@
+<button (click)="loadOrdini()" class="aggiungi-button">Ricarica</button>
+
+<table *ngIf="ordini.length > 0">
+  <thead>
+    <tr>
+      <th (click)="onSort('data')">
+        Data / Ora
+        <span *ngIf="sortKey === 'data'">{{ sortDir === 1 ? '▲' : '▼' }}</span>
+      </th>
+      <th (click)="onSort('totale')">
+        Totale (€)
+        <span *ngIf="sortKey === 'totale'">{{ sortDir === 1 ? '▲' : '▼' }}</span>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let o of ordini">
+      <tr (click)="toggleDetails(o)" [class.expanded]="expandedOrderId === o.id">
+        <td>{{ formatDateTime(o.created_at) }}</td>
+        <td>{{ o.totale_prezzo | currency:'EUR':'symbol':'1.2-2':'it-IT' }}</td>
+        <td class="actions">
+          <button (click)="rimuoviOrdine(o.id, $event)">Cancella</button>
+        </td>
+      </tr>
+      <tr *ngIf="expandedOrderId === o.id">
+        <td colspan="3">
+          <ul class="items-list">
+            <li *ngFor="let it of parsedItems">
+              {{ it.nome }} × {{ it.quantita }} — €{{ it.prezzo }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<p *ngIf="ordini.length === 0">Nessun ordine presente.</p>

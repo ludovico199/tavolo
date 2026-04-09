@@ -1,0 +1,72 @@
+table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+th:hover { background-color: #e4e4e4; }
+
+tr.expanded { background-color: #fafafa; }
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.items-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #ddd;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Bottoni azioni tabella */
+.actions button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  transition: opacity 0.2s;
+}
+.actions button:hover { opacity: 0.85; }
+
+/* Bottone Ricarica */
+.aggiungi-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+}
+.aggiungi-button:hover { background-color: #388e3c; }

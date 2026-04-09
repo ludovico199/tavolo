@@ -1,0 +1,84 @@
+<!-- Pulsante Aggiungi -->
+<button (click)="mostraFormAggiunta = true" class="aggiungi-button">Aggiungi</button>
+
+<!-- Form di aggiunta -->
+<div *ngIf="mostraFormAggiunta" class="aggiunta-form">
+  <form (ngSubmit)="aggiungiTipologia()" #formAggiungi="ngForm">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="nuovaTipologia.descrittivo" name="descrittivo" required />
+    </label>
+
+    <label>
+      <input type="color" [(ngModel)]="nuovaTipologia.colore" name="colore" class="color-picker" />
+    </label>
+
+    <label class="switch-container">
+      <span>Cucina:</span>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="nuovaTipologia.cucina" name="cucina" />
+        <span class="slider"></span>
+      </label>
+    </label>
+
+    <div class="form-actions">
+      <button type="submit">Invia</button>
+      <button type="button" (click)="mostraFormAggiunta = false">Annulla</button>
+    </div>
+  </form>
+</div>
+
+<!-- Tabella categorie -->
+<table *ngIf="tipologie.length > 0">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Colore</th>
+      <th>Cucina</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tipo of tipologie">
+      <td>{{ tipo.descrittivo }}</td>
+      <td><div class="colore-box" [style.background]="tipo.colore"></div></td>
+      <td>{{ tipo.cucina ? 'SI' : 'NO' }}</td>
+      <td class="actions">
+        <button (click)="Modifica(tipo)">Modifica</button>
+        <button (click)="Rimuovi(tipo.id)">Cancella</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="tipologie.length === 0">Nessuna categoria disponibile.</p>
+
+<!-- Overlay modifica -->
+<div *ngIf="selectedItem" class="edit-overlay">
+  <div class="edit-form">
+    <h3>Modifica categoria</h3>
+    <form (ngSubmit)="salvaModifiche()" #formModifica="ngForm">
+      <label>
+        Nome:
+        <input type="text" [(ngModel)]="selectedItem.descrittivo" name="descrittivo" required />
+      </label>
+
+      <label>
+        Colore:
+        <input type="color" [(ngModel)]="selectedItem.colore" name="colore" class="color-picker" />
+      </label>
+
+      <label class="switch-container">
+        <span>Cucina:</span>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="selectedItem.cucina" name="cucina" />
+          <span class="slider"></span>
+        </label>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit">Salva</button>
+        <button type="button" (click)="annullaModifica()">Annulla</button>
+      </div>
+    </form>
+  </div>
+</div>

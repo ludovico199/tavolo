@@ -1,0 +1,185 @@
+<div
+  class="menu_schermata"
+  *ngIf="isVisible"
+  (click)="$event.stopPropagation()"
+  (mousedown)="$event.stopPropagation()"
+>
+  <!-- Navbar Superiore -->
+  <div class="menu_navbar">
+    <div
+      class="menu_tipologia"
+      *ngFor="let tipologia of tipologie"
+      [class.active]="tipologia.attiva"
+      (click)="selezionaCategoria(tipologia)"
+    >
+      {{ tipologia.descrittivo }}
+    </div>
+  </div>
+
+  <!-- Lista Item Menu -->
+  <div class="item_list_container">
+    <ng-container *ngFor="let item of menu">
+    <div
+      *ngIf="!tipologiaSelezionata || item.tipologia === tipologiaSelezionata"
+      class="item_container"
+      (click)="apriGestioneQuantita(item)"
+    >
+      <!-- Nome e prezzo -->
+      <div class="item_nome">{{ item.nome }}</div>
+      <div class="item_prezzo_row">
+        <div class="item_prezzo">{{ item.prezzo }}</div>
+        <!-- Icona info solo se ci sono ingredienti -->
+        <div
+          *ngIf="item.ingredienti?.length > 0"
+          class="item_info_icon"
+          (click)="mostraInfo(item); $event.stopPropagation()"
+          title="Mostra ingredienti"
+        ></div>
+      </div>
+
+      <!-- Etichetta tipologia colore -->
+      <div class="item_tipologia" [ngStyle]="{ 'background-color': item.colore }"></div>
+
+      <!-- Form di gestione quantità -->
+      <form (ngSubmit)="CreaListaOrdine(item)">
+        <div
+          class="ItemOrdine_Container"
+          *ngIf="itemSelezionato === item"
+          (click)="chiudiGestioneQuantita($event)"
+        >
+          <div class="ItemOrdine_Menu" (click)="$event.stopPropagation()">
+            <div class="ItemOrdine_Nome"><h2>{{ item.nome }}</h2></div>
+            <div class="ItemOrdine_QuantitaItem">
+              <button type="button" class="ItemOrdine_QuantitaItem_Minus" (click)="decrementa(item)">-</button>
+              <input class="ItemOrdine_QuantitaItem_Screen" type="text" [value]="item.quantita" readonly>
+              <button type="button" class="ItemOrdine_QuantitaItem_Plus" (click)="incrementa(item)">+</button>
+            </div>
+            <div class="ItemOrdine_Note">
+              <textarea class="ItemOrdine_Note_Screen" [(ngModel)]="item.note" name="note" placeholder="Note"></textarea>
+            </div>
+            <h3 style="margin-bottom: 0px;">Turno N°</h3>
+            <div class="ItemOrdine_Lista">
+              <div
+                class="ItemOrdine_Turno_1"
+                [ngClass]="{'active': TurnoSelezionato === 1}"
+                (click)="GestioneTurni(1)"
+              >1</div>
+              <div
+                class="ItemOrdine_Turno_2"
+                [ngClass]="{'active': TurnoSelezionato === 2}"
+                (click)="GestioneTurni(2)"
+              >2</div>
+              <div
+                class="ItemOrdine_Turno_3"
+                [ngClass]="{'active': TurnoSelezionato === 3}"
+                (click)="GestioneTurni(3)"
+              >3</div>
+              <div
+                class="ItemOrdine_Turno_4"
+                [ngClass]="{'active': TurnoSelezionato === 4}"
+                (click)="GestioneTurni(4)"
+              >4</div>
+              <div
+                class="ItemOrdine_Turno_5"
+                [ngClass]="{'active': TurnoSelezionato === 5}"
+                (click)="GestioneTurni(5)"
+              >5</div>
+            </div>
+            <div class="ItemOrdine_InviaOrdine">
+              <button type="submit" class="ItemOrdine_InviaOrdine_Bottone">AGGIUNGI</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </ng-container>
+  </div>
+
+  <!-- Overlay Info Ingredienti (fuori dal loop) -->
+  <div
+    *ngIf="infoOverlayVisible"
+    class="ItemOrdine_Container"
+    (click)="chiudiInfo()"
+  >
+    <div class="info-popup" (click)="$event.stopPropagation()">
+      <h3>{{ infoItem?.nome }}</h3>
+      <ul>
+        <li *ngFor="let ing of infoItem?.ingredienti">
+          {{ ing }}
+        </li>
+      </ul>
+      <button class="btn-chiudi-info" (click)="chiudiInfo()">Chiudi</button>
+    </div>
+  </div>
+
+  <!-- Navbar Inferiore -->
+  <div class="menu_navbar_inferiore">
+    <div class="tavoli_bottone_container">
+      <div class="tavoli" (click)="chiudiMenu()">
+        <img src="/assets/tavolo_icona.png" alt="Tavolo">
+      </div>
+    </div>
+    <div class="ListaOrdine_bottone_container">
+      <div class="ListaOrdine" (click)="CheckMenu()">
+        <img src="/assets/lista_icona.png" alt="Lista Ordine">
+      </div>
+    </div>
+    <div class="InviaOrdine_bottone_container">
+      <div class="InviaOrdine" (click)="inviaOrdine()">
+        <img src="/assets/cucina_icona.png" alt="Invia Ordine">
+      </div>
+    </div>
+  </div>
+<!-- Check Menu -->
+<div class="CheckMenu_container" *ngIf="isCheckMenuVisible">
+  <div class="CheckMenu">
+
+    <!-- Turno 6 (senza titolo ma con .CheckMenu_Turno per stile) -->
+    <div *ngIf="listaOrdineGruppata['6'].length > 0" class="CheckMenu_Turni">
+      <div class="CheckMenu_Turno">
+        <div class="CheckMenu_ListaOrdine" *ngFor="let item of listaOrdineGruppata['6']">
+          <div class="CheckMenu_ListaOrdine_Riga" [ngClass]="{'server-data': item.isServerData}">
+            <div class="CheckMenu_ListaOrdine_Info">
+              <div class="CheckMenu_ListaOrdine_Nome">{{ item.nome }}</div>
+              <div class="CheckMenu_ListaOrdine_Note" [ngClass]="{'server-data': item.isServerData}">
+                {{ item.note }}
+              </div>
+            </div>
+            <div class="CheckMenu_PlusMinus">
+              <button (click)="decrementa(item)" [ngClass]="{'server-data': item.isServerData}">-</button>
+              <span class="CheckMenu_Quantita">{{ item.quantita }}</span>
+              <button (click)="incrementa(item)" [ngClass]="{'server-data': item.isServerData}">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Turni 1-5 con titolo -->
+    <div *ngFor="let turno of [1, 2, 3, 4, 5]" class="CheckMenu_Turni">
+      <ng-container *ngIf="listaOrdineGruppata[turno].length > 0">
+        <div class="CheckMenu_Turno">
+          <div style="padding-bottom: 2rem; border-bottom: 1px solid #cacaca;">
+            Turno {{ turno }}
+          </div>
+          <div class="CheckMenu_ListaOrdine" *ngFor="let item of listaOrdineGruppata[turno]">
+            <div class="CheckMenu_ListaOrdine_Riga" [ngClass]="{'server-data': item.isServerData}">
+              <div class="CheckMenu_ListaOrdine_Info">
+                <div class="CheckMenu_ListaOrdine_Nome">{{ item.nome }}</div>
+                <div class="CheckMenu_ListaOrdine_Note" [ngClass]="{'server-data': item.isServerData}">
+                  {{ item.note }}
+                </div>
+              </div>
+              <div class="CheckMenu_PlusMinus">
+                <button (click)="decrementa(item)" [ngClass]="{'server-data': item.isServerData}">-</button>
+                <span class="CheckMenu_Quantita">{{ item.quantita }}</span>
+                <button (click)="incrementa(item)" [ngClass]="{'server-data': item.isServerData}">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

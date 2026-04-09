@@ -1,0 +1,53 @@
+<!-- Pulsante Aggiungi -->
+<button (click)="mostraFormAggiunta = true" class="aggiungi-button">Aggiungi</button>
+
+<!-- Form aggiunta -->
+<div *ngIf="mostraFormAggiunta" class="aggiunta-form">
+  <form (ngSubmit)="aggiungiTavolo()" #formAggiungi="ngForm">
+    <label>
+      Numero Tavolo:
+      <input type="number" [(ngModel)]="nuovoTavolo.numero_tavolo" name="numero_tavolo" required />
+    </label>
+    <div class="form-actions">
+      <button type="submit">Invia</button>
+      <button type="button" (click)="mostraFormAggiunta = false">Annulla</button>
+    </div>
+  </form>
+</div>
+
+<!-- Tabella tavoli -->
+<table *ngIf="tavoli.length > 0">
+  <thead>
+    <tr>
+      <th>Numero Tavolo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tavolo of tavoli">
+      <td>{{ tavolo.numero_tavolo }}</td>
+      <td class="actions">
+        <button (click)="Modifica(tavolo)">Modifica</button>
+        <button (click)="Rimuovi(tavolo.id)">Cancella</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="tavoli.length === 0">Nessun tavolo disponibile.</p>
+
+<!-- Overlay modifica -->
+<div *ngIf="selectedItem" class="edit-overlay">
+  <div class="edit-form">
+    <h3>Modifica Tavolo</h3>
+    <form (ngSubmit)="salvaModifiche()" #formModifica="ngForm">
+      <label>
+        Numero Tavolo:
+        <input type="number" [(ngModel)]="selectedItem.numero_tavolo" name="numero_tavolo" required />
+      </label>
+      <div class="form-actions">
+        <button type="submit">Salva</button>
+        <button type="button" (click)="annullaModifica()">Annulla</button>
+      </div>
+    </form>
+  </div>
+</div>

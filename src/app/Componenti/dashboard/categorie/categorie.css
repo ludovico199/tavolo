@@ -1,0 +1,219 @@
+/* ── Bottone Aggiungi ── */
+.aggiungi-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1.2rem;
+}
+.aggiungi-button:hover { background-color: #388e3c; }
+
+/* ── Form aggiunta ── */
+.aggiunta-form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.aggiunta-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.aggiunta-form input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.aggiunta-form input:focus { outline: none; border-color: #03a9f4; }
+
+.color-picker {
+  width: 56px;
+  height: 46px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  margin-bottom: 1rem;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .3s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .3s;
+}
+input:checked + .slider { background-color: #03a9f4; }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Pulsanti form */
+.aggiunta-form .form-actions,
+.edit-form .form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.aggiunta-form button[type="submit"],
+.edit-form button[type="submit"] {
+  flex: 1;
+  padding: 0.65rem;
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.aggiunta-form button[type="submit"]:hover,
+.edit-form button[type="submit"]:hover { opacity: 0.85; }
+
+.aggiunta-form button[type="button"],
+.edit-form button[type="button"] {
+  flex: 1;
+  padding: 0.65rem;
+  background-color: #f0f0f0;
+  color: #555;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.aggiunta-form button[type="button"]:hover,
+.edit-form button[type="button"]:hover { background-color: #e0e0e0; }
+
+/* ── Tabella ── */
+table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+.colore-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-right: 10px;
+}
+.actions button:first-child { background-color: #03a9f4; color: white; }
+.actions button:last-child  { background-color: #e74c3c; color: white; }
+.actions button:hover { opacity: 0.85; }
+
+/* ── Overlay modifica ── */
+.edit-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.edit-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.edit-form input:focus { outline: none; border-color: #03a9f4; }

@@ -1,0 +1,27 @@
+/* Impostazioni generali della navbar */
+.navbar_menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #03a9f429; /* Colore azzurro della navbar */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0;
+
+}
+
+/* I singoli div dentro la navbar */
+.navbar_Tavoli, .navbar_Cucina {
+  margin: 0 20px;
+}
+
+/* Link dentro la navbar */
+.navbar_Tavoli a, .navbar_Cucina a {
+  color: white; /* Colore bianco per il testo */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+}

@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+  <nav class="sidebar">
+    <ul>
+      <li><a routerLink="ordini" routerLinkActive="active">Cronologia ordini</a></li>
+      <li><a routerLink="menu" routerLinkActive="active">Menu</a></li>
+      <li><a routerLink="categorie" routerLinkActive="active">Categorie</a></li>
+      <li><a routerLink="tavoli" routerLinkActive="active">Tavoli</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<a class="CucinaButton" [routerLink]="'/cucina'">Cucina</a>

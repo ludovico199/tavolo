@@ -1,0 +1,135 @@
+/* Contenitore orizzontale per tutte le card */
+.OrdiniContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonne sempre */
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #e7e7e7;
+  box-sizing: border-box;
+}
+
+
+.OrdineCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 100%;          /* occupa tutta la colonna */
+  min-height: 230px;
+}
+
+
+
+
+.OrdineCard_titolo {
+  position: relative;
+  display: block;        /* diventa elemento a tutta riga */
+  width: 80%;            /* il blocco è l’80% della card */
+  margin: 0 auto 1rem;   /* centra orizzontalmente e distanzia dal contenuto sotto */
+  font-size: 1.3rem;
+  color: #575757;
+  text-align: center;
+}
+
+.OrdineCard_titolo::after {
+  content: "";
+  position: absolute;
+  left: 0;               /* parte dall’inizio del blocco */
+  bottom: -0.25rem;      /* regola la distanza dalla baseline del testo */
+  width: 100%;           /* copre l’interezza del blocco (80% della card) */
+  height: 1px;
+  background-color: #cacaca;
+}
+
+/* Titolo di ogni turno */
+.OrdineCard_turnoTitolo {
+  position: relative;
+  display: block;        /* blocco largo l’80% */
+  width: 80%;
+  margin: 1rem auto 0.5rem;
+  padding-bottom: 0.25rem;
+  font-weight: bold;
+  color: #2d4257;
+  text-align: center;
+}
+
+.OrdineCard_turnoTitolo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #cacaca;
+}
+
+
+/* Rimuovi il vecchio border-bottom dagli item */
+.OrdineCard_itemRow {
+  border-bottom: none;
+}
+
+/* Info piatto & quantità affiancati */
+.OrdineCard_itemInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nome e quantità */
+.OrdineCard_itemNome {
+  font-size: 1rem;
+  color: #1c1c1e;
+}
+.OrdineCard_itemQuantita {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1c1c1e;
+}
+
+/* Note piatto */
+.OrdineCard_itemNote {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+  padding-left: 0.5rem;
+}
+
+/* Bottone chiudi */
+.OrdineCard_button {
+  margin-top: auto;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d4257;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.OrdineCard_button:hover {
+  background-color: #1f2f3d;
+}
+
+.ImpostazioniButton {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #2d4257;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.2s;
+  z-index: 1000;
+}
+
+.ImpostazioniButton:hover {
+  background-color: #1f2f3d;
+}

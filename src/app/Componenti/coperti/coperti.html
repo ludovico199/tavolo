@@ -1,0 +1,20 @@
+<div class="coperti_schermata" *ngIf="isVisible" (click)="CloseCoperti()">
+  <div class="coperti_container" (click)="$event.stopPropagation()">
+    <h2>Coperti</h2>
+    <form (ngSubmit)="SalvaCoperti()">
+      <input
+        type="number"
+        id="Coperti"
+        name="Coperti"
+        class="input_coperti no-spinner"
+        [(ngModel)]="NumeroCoperti"
+        min="1"
+        required
+        inputmode="numeric"
+        pattern="[0-9]*"
+      />
+
+      <button type="submit">Imposta</button>
+    </form>
+  </div>
+</div>
