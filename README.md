@@ -22,7 +22,7 @@
 - **Menu per categorie** — ordina per tipologia, seleziona quantità, aggiungi note e assegna il turno di servizio
 - **Invio ordini** — invia gli ordini al backend o salvali in locale se non disponibile
 - **Pannello cucina** — visualizza in tempo reale gli ordini aperti e chiudili a completamento
-- **Dashboard amministrativa** — gestisci menu, categorie e tavoli tramite un pannello dedicato
+- **Dashboard amministrativa** *(con backend)*— gestisci menu, categorie e tavoli tramite un pannello dedicato
 - **Modalità offline** — tutti i dati vengono salvati in LocalStorage se il backend non è raggiungibile
 - **Sincronizzazione automatica** — i tavoli si aggiornano ogni 5 secondi
 - **Gestione magazzino** *(con backend)* — monitoraggio dell'inventario e disponibilità degli ingredienti
