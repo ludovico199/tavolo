@@ -1,0 +1,16 @@
+[
+  { "id": 1,  "descrittivo": "Antipasti",          "colore": "#ffb347" },
+  { "id": 2,  "descrittivo": "Primi",              "colore": "#ffcc00" },
+  { "id": 3,  "descrittivo": "Secondi",            "colore": "#ff9966" },
+  { "id": 4,  "descrittivo": "Contorni",           "colore": "#66cc66" },
+  { "id": 5,  "descrittivo": "Dolci",              "colore": "#ff6699" },
+  { "id": 6,  "descrittivo": "Pizze",              "colore": "#ff4444" },
+  { "id": 7,  "descrittivo": "Panini",             "colore": "#d4a373" },
+  { "id": 8,  "descrittivo": "Friggitoria",        "colore": "#ffbb33" },
+  { "id": 9,  "descrittivo": "Bevande",            "colore": "#3399ff" },
+  { "id": 10, "descrittivo": "Cocktail",           "colore": "#cc33ff" },
+  { "id": 11, "descrittivo": "Vini Rossi",         "colore": "#990000" },
+  { "id": 12, "descrittivo": "Vini Bianchi",       "colore": "#e6e600" },
+  { "id": 13, "descrittivo": "Birre",              "colore": "#ffcc66" },
+  { "id": 14, "descrittivo": "Speciali del giorno","colore": "#00cc99" }
+]

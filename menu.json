@@ -1,0 +1,97 @@
+[
+  { "id": 1,  "nome": "Pasta al Pomodoro",          "tipologia_id": 2, "prezzo": 9.50,  "quantita": 0, "cucina": 1 },
+  { "id": 2,  "nome": "Spaghetti alla Carbonara",    "tipologia_id": 2, "prezzo": 12.00, "quantita": 0, "cucina": 1 },
+  { "id": 3,  "nome": "Risotto ai Funghi",           "tipologia_id": 2, "prezzo": 13.00, "quantita": 0, "cucina": 1 },
+  { "id": 4,  "nome": "Lasagne al Ragù",             "tipologia_id": 2, "prezzo": 11.50, "quantita": 0, "cucina": 1 },
+
+  { "id": 5,  "nome": "Tagliata di Manzo",           "tipologia_id": 3, "prezzo": 18.00, "quantita": 0, "cucina": 1 },
+  { "id": 6,  "nome": "Pollo alla Griglia",          "tipologia_id": 3, "prezzo": 14.00, "quantita": 0, "cucina": 1 },
+  { "id": 7,  "nome": "Salmone alla Piastra",        "tipologia_id": 3, "prezzo": 17.50, "quantita": 0, "cucina": 1 },
+
+  { "id": 8,  "nome": "Insalata Mista",              "tipologia_id": 4, "prezzo": 6.00,  "quantita": 0, "cucina": 0 },
+  { "id": 9,  "nome": "Patatine Fritte",             "tipologia_id": 4, "prezzo": 4.50,  "quantita": 0, "cucina": 1 },
+  { "id": 10, "nome": "Verdure Grigliate",           "tipologia_id": 4, "prezzo": 5.50,  "quantita": 0, "cucina": 1 },
+
+  { "id": 11, "nome": "Tiramisù",                    "tipologia_id": 5, "prezzo": 5.50,  "quantita": 0, "cucina": 0 },
+  { "id": 12, "nome": "Panna Cotta",                 "tipologia_id": 5, "prezzo": 5.00,  "quantita": 0, "cucina": 0 },
+  { "id": 13, "nome": "Cheesecake ai Frutti Rossi",  "tipologia_id": 5, "prezzo": 5.50,  "quantita": 0, "cucina": 0 },
+
+  { "id": 14, "nome": "Margherita",                  "tipologia_id": 6, "prezzo": 7.00,  "quantita": 0, "cucina": 1 },
+  { "id": 15, "nome": "Diavola",                     "tipologia_id": 6, "prezzo": 8.50,  "quantita": 0, "cucina": 1 },
+  { "id": 16, "nome": "4 Formaggi",                  "tipologia_id": 6, "prezzo": 9.00,  "quantita": 0, "cucina": 1 },
+
+  { "id": 17, "nome": "Cheeseburger",                "tipologia_id": 7, "prezzo": 9.50,  "quantita": 0, "cucina": 1 },
+  { "id": 18, "nome": "Panino con Cotoletta",        "tipologia_id": 7, "prezzo": 8.00,  "quantita": 0, "cucina": 1 },
+  { "id": 19, "nome": "Hot Dog",                     "tipologia_id": 7, "prezzo": 6.50,  "quantita": 0, "cucina": 1 },
+
+  { "id": 20, "nome": "Olive Ascolane",              "tipologia_id": 8, "prezzo": 5.50,  "quantita": 0, "cucina": 1 },
+  { "id": 21, "nome": "Mozzarelline Fritte",         "tipologia_id": 8, "prezzo": 5.00,  "quantita": 0, "cucina": 1 },
+  { "id": 22, "nome": "Anelli di Cipolla",           "tipologia_id": 8, "prezzo": 4.50,  "quantita": 0, "cucina": 1 },
+
+  { "id": 23, "nome": "Acqua Naturale 0.5L",         "tipologia_id": 9, "prezzo": 1.50,  "quantita": 0, "cucina": 0 },
+  { "id": 24, "nome": "Coca Cola",                   "tipologia_id": 9, "prezzo": 3.00,  "quantita": 0, "cucina": 0 },
+  { "id": 25, "nome": "Fanta",                       "tipologia_id": 9, "prezzo": 3.00,  "quantita": 0, "cucina": 0 },
+
+  { "id": 26, "nome": "Spritz",                      "tipologia_id": 10, "prezzo": 6.00, "quantita": 0, "cucina": 0 },
+  { "id": 27, "nome": "Negroni",                     "tipologia_id": 10, "prezzo": 7.00, "quantita": 0, "cucina": 0 },
+  { "id": 28, "nome": "Mojito",                      "tipologia_id": 10, "prezzo": 7.50, "quantita": 0, "cucina": 0 },
+
+  { "id": 29, "nome": "Chianti",                     "tipologia_id": 11, "prezzo": 12.00, "quantita": 0, "cucina": 0 },
+  { "id": 30, "nome": "Montepulciano",               "tipologia_id": 11, "prezzo": 11.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 31, "nome": "Pinot Grigio",                "tipologia_id": 12, "prezzo": 11.50, "quantita": 0, "cucina": 0 },
+  { "id": 32, "nome": "Chardonnay",                  "tipologia_id": 12, "prezzo": 12.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 33, "nome": "Birra Lager",                 "tipologia_id": 13, "prezzo": 4.50,  "quantita": 0, "cucina": 0 },
+  { "id": 34, "nome": "Birra IPA",                   "tipologia_id": 13, "prezzo": 5.50,  "quantita": 0, "cucina": 0 },
+
+  { "id": 35, "nome": "Piatto del Giorno",           "tipologia_id": 14, "prezzo": 10.00, "quantita": 0, "cucina": 1 },
+
+  { "id": 36, "nome": "Gnocchi al Pesto", "tipologia_id": 2, "prezzo": 11.00, "quantita": 0, "cucina": 1 },
+  { "id": 37, "nome": "Penne all’Arrabbiata", "tipologia_id": 2, "prezzo": 9.00, "quantita": 0, "cucina": 1 },
+  { "id": 38, "nome": "Ravioli Ricotta e Spinaci", "tipologia_id": 2, "prezzo": 12.50, "quantita": 0, "cucina": 1 },
+
+  { "id": 39, "nome": "Costata di Manzo", "tipologia_id": 3, "prezzo": 22.00, "quantita": 0, "cucina": 1 },
+  { "id": 40, "nome": "Braciola di Maiale", "tipologia_id": 3, "prezzo": 13.50, "quantita": 0, "cucina": 1 },
+  { "id": 41, "nome": "Petto di Tacchino", "tipologia_id": 3, "prezzo": 12.00, "quantita": 0, "cucina": 1 },
+
+  { "id": 42, "nome": "Insalata Greca", "tipologia_id": 4, "prezzo": 7.00, "quantita": 0, "cucina": 0 },
+  { "id": 43, "nome": "Insalata di Riso", "tipologia_id": 4, "prezzo": 6.50, "quantita": 0, "cucina": 0 },
+  { "id": 44, "nome": "Zucchine Trifolate", "tipologia_id": 4, "prezzo": 5.00, "quantita": 0, "cucina": 1 },
+
+  { "id": 45, "nome": "Torta al Cioccolato", "tipologia_id": 5, "prezzo": 5.00, "quantita": 0, "cucina": 0 },
+  { "id": 46, "nome": "Crostatina", "tipologia_id": 5, "prezzo": 4.50, "quantita": 0, "cucina": 0 },
+  { "id": 47, "nome": "Gelato Artigianale", "tipologia_id": 5, "prezzo": 4.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 48, "nome": "Capricciosa", "tipologia_id": 6, "prezzo": 9.50, "quantita": 0, "cucina": 1 },
+  { "id": 49, "nome": "Prosciutto e Funghi", "tipologia_id": 6, "prezzo": 8.50, "quantita": 0, "cucina": 1 },
+  { "id": 50, "nome": "Vegetariana", "tipologia_id": 6, "prezzo": 8.00, "quantita": 0, "cucina": 1 },
+
+  { "id": 51, "nome": "Hamburger Bacon", "tipologia_id": 7, "prezzo": 10.50, "quantita": 0, "cucina": 1 },
+  { "id": 52, "nome": "Panino Veggie", "tipologia_id": 7, "prezzo": 8.50, "quantita": 0, "cucina": 1 },
+  { "id": 53, "nome": "Wrap Pollo", "tipologia_id": 7, "prezzo": 7.50, "quantita": 0, "cucina": 1 },
+
+  { "id": 54, "nome": "Nachos", "tipologia_id": 8, "prezzo": 5.00, "quantita": 0, "cucina": 1 },
+  { "id": 55, "nome": "Jalapeños Fritti", "tipologia_id": 8, "prezzo": 5.50, "quantita": 0, "cucina": 1 },
+  { "id": 56, "nome": "Crocchette di Patate", "tipologia_id": 8, "prezzo": 4.50, "quantita": 0, "cucina": 1 },
+
+  { "id": 57, "nome": "Acqua Frizzante 0.5L", "tipologia_id": 9, "prezzo": 1.50, "quantita": 0, "cucina": 0 },
+  { "id": 58, "nome": "Sprite", "tipologia_id": 9, "prezzo": 3.00, "quantita": 0, "cucina": 0 },
+  { "id": 59, "nome": "Tè Freddo Limone", "tipologia_id": 9, "prezzo": 3.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 60, "nome": "Americano", "tipologia_id": 10, "prezzo": 6.50, "quantita": 0, "cucina": 0 },
+  { "id": 61, "nome": "Gin Tonic", "tipologia_id": 10, "prezzo": 7.00, "quantita": 0, "cucina": 0 },
+  { "id": 62, "nome": "Campari Spritz", "tipologia_id": 10, "prezzo": 6.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 63, "nome": "Barbera", "tipologia_id": 11, "prezzo": 10.50, "quantita": 0, "cucina": 0 },
+  { "id": 64, "nome": "Nero d’Avola", "tipologia_id": 11, "prezzo": 11.50, "quantita": 0, "cucina": 0 },
+
+  { "id": 65, "nome": "Sauvignon Blanc", "tipologia_id": 12, "prezzo": 12.00, "quantita": 0, "cucina": 0 },
+  { "id": 66, "nome": "Vermentino", "tipologia_id": 12, "prezzo": 11.00, "quantita": 0, "cucina": 0 },
+
+  { "id": 67, "nome": "Birra Weiss", "tipologia_id": 13, "prezzo": 5.00, "quantita": 0, "cucina": 0 },
+  { "id": 68, "nome": "Birra Rossa", "tipologia_id": 13, "prezzo": 5.50, "quantita": 0, "cucina": 0 },
+
+  { "id": 69, "nome": "Specialità dello Chef", "tipologia_id": 14, "prezzo": 14.00, "quantita": 0, "cucina": 1 },
+  { "id": 70, "nome": "Piatto Vegetariano del Giorno", "tipologia_id": 14, "prezzo": 11.00, "quantita": 0, "cucina": 1 }
+]

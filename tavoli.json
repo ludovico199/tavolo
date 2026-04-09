@@ -1,0 +1,6 @@
+[
+  { "id": 1, "numero_tavolo": 1, "numero_coperti": 0, "righe_ordine": [] },
+  { "id": 2, "numero_tavolo": 2, "numero_coperti": 0, "righe_ordine": [] },
+  { "id": 3, "numero_tavolo": 3, "numero_coperti": 0, "righe_ordine": [] },
+  { "id": 4, "numero_tavolo": 4, "numero_coperti": 0, "righe_ordine": [] }
+]
