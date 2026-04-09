@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href 'https://ludovico199.github.io/tavolo/' && npx angular-cli-ghpages --dir=dist/AppOrdini/browser --repo=https://github.com/ludovico199/tavolo.git"
   },
   "private": true,
   "packageManager": "npm@11.11.0",
@@ -24,6 +25,7 @@
     "@angular/build": "^21.2.5",
     "@angular/cli": "^21.2.5",
     "@angular/compiler-cli": "^21.2.0",
+    "angular-cli-ghpages": "^3.0.2",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

@@ -5,7 +5,7 @@
       *ngFor="let tavolo of tavoli"
       (click)="gestiscitavolo(tavolo)"
     >
-      <div class="tavolo_icona" [ngClass]="getClasseTavolo(tavolo)"></div>
+      <img class="tavolo_icona" [src]="getIconaTavolo(tavolo)" alt="tavolo">
       <div class="tavolo_menu" *ngIf="tavolo.mostraMenu">
         <div class="tavolo_menu_item" (click)="chiudiTavolo(tavolo, $event)">
           Chiudi tavolo
@@ -16,7 +16,7 @@
 
       <div class="tavolo_info">
         <div class="tavolo_dati">
-          <div class="tavolo_posti"></div>
+          <img class="tavolo_posti" src="assets/Coperti_icona.png" alt="coperti">
           <div>{{ tavolo.numero_coperti }}</div>
         </div>
         <ng-container *ngIf="tavolo.numero_coperti > 0">

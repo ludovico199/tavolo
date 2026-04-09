@@ -66,8 +66,6 @@ body{
 }
 
 .tavolo_posti {
-  background-image: url('/assets/Coperti_icona.png');
-  background-size: cover;
   height: 20px;
   width: 20px;
 }
@@ -105,13 +103,8 @@ body{
   background-size: cover;
 }
 
-.tavolo_libero {
-  background-image: url('/assets/tavolo_icona_verde.png');
-}
-
-.tavolo_occupato {
-  background-image: url('/assets/tavolo_icona_rosso.png');
-}
+.tavolo_libero {}
+.tavolo_occupato {}
 
 .tavolo_reset {
   position: absolute;

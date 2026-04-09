@@ -29,12 +29,14 @@
       <div class="item_prezzo_row">
         <div class="item_prezzo">{{ item.prezzo }}</div>
         <!-- Icona info solo se ci sono ingredienti -->
-        <div
+        <img
           *ngIf="item.ingredienti?.length > 0"
           class="item_info_icon"
+          src="assets/Info_icona.png"
+          alt="info"
           (click)="mostraInfo(item); $event.stopPropagation()"
           title="Mostra ingredienti"
-        ></div>
+        >
       </div>
 
       <!-- Etichetta tipologia colore -->
@@ -116,17 +118,17 @@
   <div class="menu_navbar_inferiore">
     <div class="tavoli_bottone_container">
       <div class="tavoli" (click)="chiudiMenu()">
-        <img src="/assets/tavolo_icona.png" alt="Tavolo">
+        <img src="assets/tavolo_icona.png" alt="Tavolo">
       </div>
     </div>
     <div class="ListaOrdine_bottone_container">
       <div class="ListaOrdine" (click)="CheckMenu()">
-        <img src="/assets/lista_icona.png" alt="Lista Ordine">
+        <img src="assets/lista_icona.png" alt="Lista Ordine">
       </div>
     </div>
     <div class="InviaOrdine_bottone_container">
       <div class="InviaOrdine" (click)="inviaOrdine()">
-        <img src="/assets/cucina_icona.png" alt="Invia Ordine">
+        <img src="assets/cucina_icona.png" alt="Invia Ordine">
       </div>
     </div>
   </div>

@@ -57,8 +57,8 @@ npm install -g @angular/cli
 
 ```bash
 # Clona il repository
-git clone https://github.com/<tuo-username>/app-ordini.git
-cd app-ordini/AppOrdini
+git clone https://github.com/ludovico199/tavolo.git
+cd tavolo/AppOrdini
 
 # Installa le dipendenze
 npm install

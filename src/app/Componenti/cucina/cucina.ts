@@ -120,17 +120,26 @@ export class CucinaComponent implements OnInit, OnDestroy {
     return Object.keys(o.groupedMenu || {});
   }
 
+  private archiviaComeStorico(ordine: Ordine): void {
+    const chiave = `storico_tavolo_${ordine.tavolo_id}`;
+    const items = JSON.parse(localStorage.getItem(`ordini_local_tavolo_${ordine.tavolo_id}`) || '[]');
+    if (items.length > 0) {
+      localStorage.setItem(chiave, JSON.stringify(items));
+    }
+    localStorage.removeItem(`ordini_local_tavolo_${ordine.tavolo_id}`);
+  }
+
   chiudiOrdine(ordine: Ordine): void {
     if (ordine.isLocal) {
-      localStorage.removeItem(`ordini_local_tavolo_${ordine.tavolo_id}`);
+      this.archiviaComeStorico(ordine);
       this.caricaOrdini();
       return;
     }
 
     this.http.put(`http://localhost:8000/api/ordini/${ordine.id}/chiudi`, {}).pipe(
       catchError(() => {
-        console.warn('⚠️ API chiusura non disponibile → rimuovo da localStorage');
-        localStorage.removeItem(`ordini_local_tavolo_${ordine.tavolo_id}`);
+        console.warn('⚠️ API chiusura non disponibile → archivio in storico');
+        this.archiviaComeStorico(ordine);
         return of(null);
       })
     ).subscribe({

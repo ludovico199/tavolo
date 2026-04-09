@@ -92,11 +92,12 @@ caricaTavoli(): void {
         console.warn("⚠️ API non disponibile → uso localStorage");
 
         const tavoliLocal = localStorage.getItem('tavoli_local');
+        const parsed = tavoliLocal ? JSON.parse(tavoliLocal) : [];
 
-        if (tavoliLocal) {
-          return of(JSON.parse(tavoliLocal));
+        if (parsed.length > 0) {
+          return of(parsed);
         } else {
-          return of([]);
+          return this.http.get<any[]>('tavoli.json');
         }
 
       })
@@ -169,10 +170,28 @@ private processaTavoli(response: any[]): void {
       }
     });
 
-    const stato =
-      ordini.length > 0
-        ? 'IN CORSO'
-        : 'TERMINATO';
+    const stato = ordini.length > 0 ? 'IN CORSO' : 'TERMINATO';
+
+    // Storico: ordini chiusi, da mostrare ma non influenzano lo stato
+    const storicoLocale = JSON.parse(
+      localStorage.getItem(`storico_tavolo_${tavolo.id}`) || '[]'
+    );
+
+    storicoLocale.forEach((item: any) => {
+      const esistente = ordini.find(o =>
+        o.nome === item.nome && o.note === (item.note || '')
+      );
+      if (esistente) {
+        esistente.quantita += item.quantita;
+      } else {
+        ordini.push({
+          nome: item.nome || 'Voce sconosciuta',
+          prezzo: item.prezzo || 0,
+          quantita: item.quantita,
+          note: item.note || ''
+        });
+      }
+    });
 
     return {
       ...tavolo,
@@ -208,8 +227,9 @@ private processaTavoli(response: any[]): void {
     event.stopPropagation();
     tavolo.mostraMenu = false;
 
-    // Pulisce sempre gli ordini locali
+    // Pulisce ordini attivi e storico
     localStorage.removeItem(`ordini_local_tavolo_${tavolo.id}`);
+    localStorage.removeItem(`storico_tavolo_${tavolo.id}`);
 
     this.http.put(`http://localhost:8000/api/coperti/${tavolo.id}`, { coperti: 0 }).pipe(
       catchError(() => {
@@ -253,6 +273,12 @@ private processaTavoli(response: any[]): void {
   getClasseTavolo(tavolo: any): string {
     const coperti = Number(tavolo.numero_coperti || 0);
     return coperti > 0 ? 'tavolo_occupato' : 'tavolo_libero';
+  }
+
+  getIconaTavolo(tavolo: any): string {
+    const coperti = Number(tavolo.numero_coperti || 0);
+    const img = coperti > 0 ? 'tavolo_icona_rosso.png' : 'tavolo_icona_verde.png';
+    return `${document.baseURI}assets/${img}`;
   }
 
   toggleVisibility(tavolo: any) {
